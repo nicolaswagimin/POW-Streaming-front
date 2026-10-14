@@ -164,6 +164,18 @@ time { font: 500 0.78rem var(--cond); color: var(--tinta-suave); font-variant-nu
   .fila-confirmar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .fila-confirmar label { grid-column: 1 / -1; }
   .aviso { width: calc(100% - 2rem); }
+  /* Tabla de RPC como tarjetas: los contadores quedan visibles sin scroll horizontal. */
+  .tabla-rpc { min-width: 0; }
+  .tabla-rpc thead { position: absolute; left: -9999px; }
+  .tabla-rpc tr { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.25rem 0.5rem; padding: 0.75rem 0; border-bottom: 1.5px solid var(--tinta); }
+  .tabla-rpc th, .tabla-rpc td { border: 0; padding: 0; min-width: 0; }
+  .tabla-rpc tbody th, .tabla-rpc td:nth-child(2), .tabla-rpc td:nth-child(3) { grid-column: 1 / -1; }
+  .tabla-rpc code { word-break: break-word; }
+  .tabla-rpc td.n { text-align: left; }
+  .tabla-rpc td.n::before { display: block; font: 600 0.68rem var(--cond); text-transform: uppercase; letter-spacing: 0.08em; color: var(--tinta-suave); }
+  .tabla-rpc td:nth-child(4)::before { content: 'Llamadas'; }
+  .tabla-rpc td:nth-child(5)::before { content: 'Mensajes'; }
+  .tabla-rpc td:nth-child(6)::before { content: 'Abiertas'; }
 }
 
 @media (prefers-reduced-motion: reduce) {
